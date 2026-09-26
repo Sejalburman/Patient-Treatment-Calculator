@@ -1,0 +1,289 @@
+:root {
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --card-alt: #f8fafc;
+  --border: #dfe5ee;
+  --border-soft: #e6ebf2;
+  --text: #172033;
+  --muted: #6b7280;
+  --primary: #1f4fd7;
+  --primary-soft: #e7efff;
+  --danger-bg: #fee2e2;
+  --danger-text: #b91c1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 35px 16px;
+}
+
+.calculator {
+  max-width: 1050px;
+  margin: auto;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 12px 35px rgba(20, 35, 60, 0.12);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-soft);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.topbar p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+section {
+  margin-top: 24px;
+}
+
+.patient-card {
+  background: var(--card-alt);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.table {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.thead,
+.trow {
+  display: grid;
+  grid-template-columns: 45px 1fr 130px 130px 45px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  min-width: 620px;
+}
+
+.thead {
+  background: var(--card-alt);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.trow {
+  border-top: 1px solid var(--border-soft);
+}
+
+.trow .row-num {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.secondary {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.danger {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  font-size: 18px;
+  padding: 6px 12px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.summary {
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--card-alt);
+}
+
+.summary > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.discount-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.discount-wrap input {
+  width: 90px;
+  text-align: right;
+}
+
+.percent-sign {
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.discount-amt {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.grand {
+  border-top: 2px solid var(--text);
+  margin-top: 6px;
+  padding-top: 12px !important;
+  font-size: 19px;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.clear {
+  background: var(--border-soft);
+  color: var(--text);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .wide {
+    grid-column: auto;
+  }
+  .topbar,
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+  .page {
+    padding: 0;
+  }
+  .calculator {
+    box-shadow: none;
+    max-width: none;
+  }
+  button,
+  footer {
+    display: none !important;
+  }
+  input,
+  select {
+    border: 0;
+    padding-left: 0;
+  }
+  .table {
+    overflow-x: visible;
+  }
+  .thead,
+  .trow {
+    min-width: 0;
+  }
+}
